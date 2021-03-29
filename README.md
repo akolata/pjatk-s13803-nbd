@@ -1,2 +1,3 @@
-# pjatk-s13803-nbd
-Exercises from NBD subject
+# NBD
+Exercises from NBD subject  
+Aleksander Kołata s13803
