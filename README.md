@@ -13,6 +13,5 @@ docker run \
 ```  
 
 ```shell script  
- docker exec -it nbd-mongo /bin/sh
+ docker exec -it nbd-mongo bash
 ```
-mongoimport --file ./cwiczenia2.json --db nbd --jsonArray -c people
