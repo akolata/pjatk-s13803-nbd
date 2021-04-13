@@ -8,7 +8,7 @@ Running MongoDB (ZSH shell)
 docker run \
     --name nbd-mongo \
     -v ~/docker-volumes/mongo:/data/db \
-    -v $(pwd)/nbd/src/pl/akolata/s13803/nbd/nbd03:/opt/nbd \
+    -v $(pwd)/nbd/src/pl/akolata/s13803/nbd:/opt/nbd \
     -d mongo:4.4.4
 ```  
 
