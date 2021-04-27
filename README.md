@@ -15,3 +15,17 @@ docker run \
 ```shell script  
  docker exec -it nbd-mongo bash
 ```
+
+## Neo4j  
+Running Neo4j (ZSH shell)  
+```shell script
+docker run \
+  --name nbd-neo4j \
+  -v ~/docker-volumes/neo4j/nbd-neo4j:/data \
+  -v $(pwd)/nbd/src/pl/akolata/s13803/nbd:/opt/nbd \
+  -p 7474:7474 \
+  -p 7687:7687 \
+  -e NEO4J_AUTH=none \
+  -d \
+  neo4j:4.2.5
+```
