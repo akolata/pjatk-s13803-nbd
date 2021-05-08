@@ -5,20 +5,34 @@ var mapFunctionNbd0404 = function () {
     var value = {
         minBmi: bmi,
         avgBmi: bmi,
-        maxBmi: bmi
+        maxBmi: bmi,
+        count: 1
     };
     emit(this.nationality, value);
 };
 
 var reduceFunctionNbd0404 = function (key, values) {
-    // value: Array<{minBmi: number, avgBmi: number, maxBmi: number}>
-    var bmiValues = values.map(values => values.avgBmi); // all 3 properties have the same value after 'map' step
+    // value: Array<{minBmi: number, avgBmi: number, maxBmi: number, count: number}>
+    var bmiValues = values.map(values => values.avgBmi); // all 4 properties have the same value after 'map' step
     return {
         minBmi: Math.min.apply(Math, bmiValues),
-        avgBmi: Array.sum(bmiValues) / bmiValues.length,
-        maxBmi: Math.max.apply(Math, bmiValues)
+        avgBmi: Array.sum(bmiValues),
+        maxBmi: Math.max.apply(Math, bmiValues),
+        count: Array.sum(values.map(obj => obj.count))
     };
 };
 
-db.people.mapReduce(mapFunctionNbd0404, reduceFunctionNbd0404, {out: "peopleNBD0404"});
+var finalizeFunctionNbd0404 = function (key, reducedVal) {
+    // reducedVal: Array<{minBmi: number, avgBmi: number, maxBmi: number, count: number}>
+    return {
+        minBmi: reducedVal.minBmi,
+        avgBmi: reducedVal.avgBmi / reducedVal.count,
+        maxBmi: reducedVal.maxBmi
+    };
+};
+
+db.people.mapReduce(mapFunctionNbd0404, reduceFunctionNbd0404, {
+    out: "peopleNBD0404",
+    finalize: finalizeFunctionNbd0404
+});
 printjson(db.peopleNBD0404.find().sort({_id: 1}).toArray());
