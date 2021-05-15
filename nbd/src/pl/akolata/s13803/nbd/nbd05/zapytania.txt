@@ -1,0 +1,6 @@
+01. Wszystkie filmy
+MATCH (movie: Movie) RETURN movie
+02. Wszystkie filmy, w których grał Hugo Weaving
+MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies) RETURN hugo,hugoWeavingMovies
+03. Reżyserzy filmów, w których grał Hugo Weaving
+MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies)<-[:DIRECTED]-(directors) RETURN directors
