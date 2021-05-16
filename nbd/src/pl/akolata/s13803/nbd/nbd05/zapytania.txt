@@ -54,3 +54,4 @@ CREATE
 (christopherMarkus)-[:WROTE]->(captainAmerica),
 (stephenMcFeely)-[:WROTE]->(captainAmerica)
 
+MATCH (actors:Person)-[:ACTED_IN]->(captainAmerica:Movie {title: "Captain America: The First Avenger"})<-[:DIRECTED]-(director:Person), (writers:Person)-[:WROTE]->(captainAmerica) RETURN captainAmerica,actors,director,writers
