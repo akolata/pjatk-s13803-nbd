@@ -8,5 +8,7 @@ MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies)<-[:
 MATCH (hugo: Person {name:"Hugo Weaving"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) RETURN coActors
 05. Wszystkie filmy osób, które grały w Matrix
 MATCH (matrixActorsMovies: Movie)<-[:ACTED_IN]-(actor:Person)-[:ACTED_IN]->(movie:Movie {title: "The Matrix"}) RETURN matrixActorsMovies
-06.
+06. Listę aktorów (aktor = osoba, która grała przynajmniej w jednym filmie) wraz z ilością filmów, w których grali
 MATCH (actor:Person)-[:ACTED_IN]->(movie) WITH actor, COUNT(*) AS moviesCount WHERE moviesCount > 0 RETURN actor, moviesCount ORDER BY moviesCount
+07. Listę osób, które napisały scenariusz filmu, które wyreżyserowały wraz z tytułami takich filmów (koniunkcja – ten sam autor scenariusza i reżyser)
+MATCH (author: Person) -[:WROTE]-> (movie: Movie) <-[:DIRECTED]- (director: Person) WHERE author = director RETURN author, movie, director
