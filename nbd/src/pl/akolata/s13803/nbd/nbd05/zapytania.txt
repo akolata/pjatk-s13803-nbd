@@ -8,3 +8,5 @@ MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies)<-[:
 MATCH (hugo: Person {name:"Hugo Weaving"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) RETURN coActors
 05. Wszystkie filmy osób, które grały w Matrix
 MATCH (matrixActorsMovies: Movie)<-[:ACTED_IN]-(actor:Person)-[:ACTED_IN]->(movie:Movie {title: "The Matrix"}) RETURN matrixActorsMovies
+06.
+MATCH (actor:Person)-[:ACTED_IN]->(movie) WITH actor, COUNT(*) AS moviesCount WHERE moviesCount > 0 RETURN actor, moviesCount ORDER BY moviesCount
