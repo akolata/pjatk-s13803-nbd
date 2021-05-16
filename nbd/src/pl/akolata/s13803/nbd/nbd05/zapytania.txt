@@ -12,3 +12,5 @@ MATCH (matrixActorsMovies: Movie)<-[:ACTED_IN]-(actor:Person)-[:ACTED_IN]->(movi
 MATCH (actor:Person)-[:ACTED_IN]->(movie) WITH actor, COUNT(*) AS moviesCount WHERE moviesCount > 0 RETURN actor, moviesCount ORDER BY moviesCount
 07. Listę osób, które napisały scenariusz filmu, które wyreżyserowały wraz z tytułami takich filmów (koniunkcja – ten sam autor scenariusza i reżyser)
 MATCH (author: Person) -[:WROTE]-> (movie: Movie) <-[:DIRECTED]- (director: Person) WHERE author = director RETURN author, movie, director
+08. Listę filmów, w których grał zarówno Hugo Weaving jak i Keanu Reeves
+MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoMovies: Movie), (kanu:Person {name: "Keanu Reeves"})-[:ACTED_IN]->(kanuMovies: Movie) WHERE hugoMovies=kanuMovies RETURN hugoMovies
