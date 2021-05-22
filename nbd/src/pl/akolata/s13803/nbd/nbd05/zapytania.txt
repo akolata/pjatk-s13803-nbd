@@ -1,18 +1,18 @@
-01. Wszystkie filmy
+01.
 MATCH (movie: Movie) RETURN movie
-02. Wszystkie filmy, w których grał Hugo Weaving
+02.
 MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies) RETURN hugo,hugoWeavingMovies
-03. Reżyserzy filmów, w których grał Hugo Weaving
+03.
 MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoWeavingMovies)<-[:DIRECTED]-(directors) RETURN directors
-04. Wszystkie osoby, z którymi Hugo Weaving grał w tych samych filmach
+04.
 MATCH (hugo: Person {name:"Hugo Weaving"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) RETURN coActors
-05. Wszystkie filmy osób, które grały w Matrix
+05.
 MATCH (matrixActorsMovies: Movie)<-[:ACTED_IN]-(actor:Person)-[:ACTED_IN]->(movie:Movie {title: "The Matrix"}) RETURN matrixActorsMovies
-06. Listę aktorów (aktor = osoba, która grała przynajmniej w jednym filmie) wraz z ilością filmów, w których grali
+06.
 MATCH (actor:Person)-[:ACTED_IN]->(movie) WITH actor, COUNT(*) AS moviesCount WHERE moviesCount > 0 RETURN actor, moviesCount ORDER BY moviesCount
-07. Listę osób, które napisały scenariusz filmu, które wyreżyserowały wraz z tytułami takich filmów (koniunkcja – ten sam autor scenariusza i reżyser)
+07.
 MATCH (author: Person) -[:WROTE]-> (movie: Movie) <-[:DIRECTED]- (director: Person) WHERE author = director RETURN author, movie, director
-08. Listę filmów, w których grał zarówno Hugo Weaving jak i Keanu Reeves
+08.
 MATCH (hugo: Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoMovies: Movie), (kanu:Person {name: "Keanu Reeves"})-[:ACTED_IN]->(kanuMovies: Movie) WHERE hugoMovies=kanuMovies RETURN hugoMovies
 09.
 CREATE (captainAmerica: Movie {title:"Captain America: The First Avenger", released: 2011, tagline: 'When Patriots Become Heroes'})
