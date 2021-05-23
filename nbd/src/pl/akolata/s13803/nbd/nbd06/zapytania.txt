@@ -14,3 +14,14 @@ MATCH (f:Flight)-[:ORIGIN]->(a:Airport)
 WITH a, count(f) as flightsOriginCount
 ORDER BY flightsOriginCount
 RETURN a, flightsOriginCount
+
+5.
+MATCH (lax:Airport {name:'LAX'})<-[:ORIGIN]-(f:Flight), (f)-[*]->(whatever:Airport)
+RETURN lax, f, a
+
+MATCH (lax:Airport {name:'LAX'})<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(a:Airport), (f)<-[:ASSIGN]-(t:Ticket)
+WITH lax, f, a, t
+MATCH (f)<-[:ASSIGN]-(t:Ticket {price: min_price})
+WITH a,b,f,t
+CREATE (a)-[r:CHEAPEST_FLIGHT {price: t.price, class:t.class, date: f.date, duration: f.duration, distance: f.distance, airline:f.airline}]->(b)
+RETURN r;
