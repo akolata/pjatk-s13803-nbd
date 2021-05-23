@@ -66,3 +66,7 @@ curl -X POST -i \
 curl -X GET -i \
     -H 'Accept:application/json' \
     http://localhost:8098/buckets/s13803/keys/PCuOi9ol0qYh8OBnO2utG1Fz50X
+
+10.
+curl -X DELETE -i \
+    http://localhost:8098/buckets/s13803/keys/PCuOi9ol0qYh8OBnO2utG1Fz50X
