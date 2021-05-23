@@ -46,3 +46,7 @@ curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "FUJIFILM", "model": "FUJICOLOR C200", "colour": true, "exposuresCount": 36, "format": "35mm"}' \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
+6.
+curl -X DELETE -i \
+    http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
