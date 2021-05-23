@@ -1,2 +1,6 @@
 1.1
-MATCH p=shortestPath((d:town {name:'Darjeeling'})-[*]-(s:peak {name:'Sandakphu'})) RETURN p
+MATCH p=shortestPath((d:town {name:'Darjeeling'})-[*]->(s:peak {name:'Sandakphu'})) RETURN p
+1.2
+MATCH p=shortestPath((d:town {name:'Darjeeling'})-[*]->(s:peak {name:'Sandakphu'}))
+WHERE ALL(r in relationships(p) WHERE r.winter= 'true')
+RETURN p
