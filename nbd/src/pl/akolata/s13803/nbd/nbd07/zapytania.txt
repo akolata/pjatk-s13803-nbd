@@ -55,3 +55,9 @@ curl -X DELETE -i \
 curl -X GET -i \
     -H 'Accept:application/json' \
     http://localhost:8098/buckets/s13803/keys/OMG_I_DO_NOT_EXIST
+
+8.
+curl -X POST -i \
+    -H 'Content-Type:application/json' \
+    -d '{"test": "test"}' \
+    http://localhost:8098/buckets/s13803/keys
