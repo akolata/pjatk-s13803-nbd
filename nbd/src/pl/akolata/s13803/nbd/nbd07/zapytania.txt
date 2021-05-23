@@ -2,24 +2,30 @@
 curl -X PUT -i \
     -H "Content-Type:application/json" \
     -d '{"brand": "ILFORD", "model": "HP5+", "colour": false, "exposuresCount": 36, "iso": 400}' \
-    http://localhost:8098/buckets/s13803/keys/photographicFilms
+    http://localhost:8098/buckets/s13803/keys/ILFORD_HP5+_400
 
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "ILFORD", "model": "DELTA", "colour": false, "exposuresCount": 36, "iso": 3200}' \
-    http://localhost:8098/buckets/s13803/keys/photographicFilms
+    http://localhost:8098/buckets/s13803/keys/ILFORD_DELTA_3200
 
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "KODAK", "model": "PORTRA", "colour": true, "exposuresCount": 36, "iso": 800}' \
-    http://localhost:8098/buckets/s13803/keys/photographicFilms
+    http://localhost:8098/buckets/s13803/keys/KODAK_PORTRA_800
 
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "KODAK", "model": "TRI-X", "colour": false, "exposuresCount": 36, "iso": 400}' \
-    http://localhost:8098/buckets/s13803/keys/photographicFilms
+    http://localhost:8098/buckets/s13803/keys/KODAK_TRI-X_400
 
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "iso": 200}' \
-    http://localhost:8098/buckets/s13803/keys/photographicFilms
+    http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
+2.
+curl -X GET -i \
+    -H 'Accept:application/json' \
+    http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
