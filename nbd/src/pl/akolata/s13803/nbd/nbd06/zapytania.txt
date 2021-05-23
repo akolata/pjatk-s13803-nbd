@@ -1,11 +1,16 @@
-1
+1.
 MATCH p=shortestPath((d:town {name:'Darjeeling'})-[*]->(s:peak {name:'Sandakphu'})) RETURN p
-2
+2.
 MATCH p=shortestPath((d:town {name:'Darjeeling'})-[*]->(s:peak {name:'Sandakphu'}))
 WHERE ALL(r in relationships(p) WHERE r.winter= 'true')
 RETURN p
-3
+3.
 MATCH p=(d:town {name:'Darjeeling'})-[*]->(s:peak {name:'Sandakphu'})
 WITH reduce(total=0, r IN relationships(p) | total + r.distance) AS d, p
-ORDER BY d ASC, p
+ORDER BY d
 RETURN p, d
+4.
+MATCH (f:Flight)-[:ORIGIN]->(a:Airport)
+WITH a, count(f) as flightsOriginCount
+ORDER BY flightsOriginCount
+RETURN a, flightsOriginCount
