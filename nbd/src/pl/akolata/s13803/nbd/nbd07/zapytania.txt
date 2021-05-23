@@ -61,3 +61,8 @@ curl -X POST -i \
     -H 'Content-Type:application/json' \
     -d '{"test": "test"}' \
     http://localhost:8098/buckets/s13803/keys
+
+9.
+curl -X GET -i \
+    -H 'Accept:application/json' \
+    http://localhost:8098/buckets/s13803/keys/PCuOi9ol0qYh8OBnO2utG1Fz50X
