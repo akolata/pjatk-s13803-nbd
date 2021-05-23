@@ -29,14 +29,20 @@ curl -X GET -i \
     -H 'Accept:application/json' \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
 
-3.
+3. Dodanie pola "format"
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "iso": 200, "format": "35mm"}' \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
 
-4.
+4. Usunięcie pola "iso"
 curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "format": "35mm"}' \
+    http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
+5. Zmiana wartości pola "model"
+curl -X PUT -i \
+    -H 'Content-Type:application/json' \
+    -d '{"brand": "FUJIFILM", "model": "FUJICOLOR C200", "colour": true, "exposuresCount": 36, "format": "35mm"}' \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
