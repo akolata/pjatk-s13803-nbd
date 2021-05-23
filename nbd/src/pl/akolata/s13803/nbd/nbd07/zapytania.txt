@@ -50,3 +50,8 @@ curl -X PUT -i \
 6.
 curl -X DELETE -i \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
+7.
+curl -X GET -i \
+    -H 'Accept:application/json' \
+    http://localhost:8098/buckets/s13803/keys/OMG_I_DO_NOT_EXIST
