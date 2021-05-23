@@ -29,3 +29,14 @@ docker run \
   -d \
   neo4j:4.2.5
 ```
+
+## Riak  
+Running Riak  
+```shell script
+docker run \
+  --name=nbd-riak \
+  -p 8087:8087 \
+  -p 8098:8098 \
+  -d \
+  basho/riak-kv:ubuntu-2.2.3
+```   
