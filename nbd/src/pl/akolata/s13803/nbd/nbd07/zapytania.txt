@@ -34,3 +34,9 @@ curl -X PUT -i \
     -H 'Content-Type:application/json' \
     -d '{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "iso": 200, "format": "35mm"}' \
     http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
+
+4.
+curl -X PUT -i \
+    -H 'Content-Type:application/json' \
+    -d '{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "format": "35mm"}' \
+    http://localhost:8098/buckets/s13803/keys/FUJIFILM_FUJICOLOR_200
