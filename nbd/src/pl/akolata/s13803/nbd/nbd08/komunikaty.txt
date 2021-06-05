@@ -1,0 +1,37 @@
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Setting up Riak cluster...
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.PlatformDependent0$1 (file:/Users/aleksanderkolata/.m2/repository/io/netty/netty-all/4.1.5.Final/netty-all-4.1.5.Final.jar) to field java.nio.Buffer.address
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.PlatformDependent0$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[main] INFO com.basho.riak.client.core.RiakNode - RiakNode started; 127.0.0.1:8087
+[main] INFO com.basho.riak.client.core.RiakCluster - RiakCluster is starting.
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Riak cluster set up
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Creating Riak client...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Riak client created
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Example document created. Document [PhotographicFilm(brand=Ilford, model=HP5+, colour=false, exposuresCount=36, iso=400, format=36mm)], key [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]
+[main] INFO com.basho.riak.client.core.util.DefaultCharset - No desired charset found in system properties, the default charset 'UTF-8' will be used
+[main] INFO com.basho.riak.client.core.util.DefaultCharset - Initializing client charset to: UTF-8
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to store document under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document stored under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to fetch document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Fetched document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document under key [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]: [PhotographicFilm(brand=Ilford, model=HP5+, colour=false, exposuresCount=36, iso=400, format=36mm)]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to update document under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990] updated: [true]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to fetch document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Fetched document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document under key [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]: [PhotographicFilm(brand=Canon, model=Color, colour=true, exposuresCount=36, iso=200, format=36mm)]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to delete document under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document under location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990] deleted
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Trying to fetch document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]...
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Fetched document from location [5bb4dd24-f266-4e48-8c5b-c36c28e7f990]
+[main] INFO pl.akolata.s13803.riak.RiakNbd08 - Document under key [5bb4dd24-f266-4e48-8c5b-c36c28e7f990] does not exist
+[main] INFO com.basho.riak.client.core.RiakCluster - RiakCluster is shutting down.
+[pool-1-thread-2] INFO com.basho.riak.client.core.RiakCluster - All operations have completed
+[pool-1-thread-1] INFO com.basho.riak.client.core.RiakCluster - Retrier shutting down.
+[pool-1-thread-2] INFO com.basho.riak.client.core.RiakNode - RiakNode shutting down; 127.0.0.1:8087
+[pool-1-thread-2] INFO com.basho.riak.client.core.DefaultNodeManager - NodeManager removed node due to it shutting down; 127.0.0.1:8087
+[pool-1-thread-1] INFO com.basho.riak.client.core.RiakCluster - RiakCluster has shut down
+
+Process finished with exit code 0
