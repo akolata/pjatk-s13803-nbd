@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvm+dY5DAwOCnmMGUyJjHyhDKLX+LLwsA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s13803>; rel="up"
+Last-Modified: Sun, 23 May 2021 17:22:29 GMT
+ETag: "1al7leqPLRkiTTCsBOuGTc"
+Date: Sun, 23 May 2021 17:23:11 GMT
+Content-Type: application/json
+Content-Length: 93
+
+{"brand": "FUJIFILM", "model": "FUJICOLOR", "colour": true, "exposuresCount": 36, "iso": 200}
