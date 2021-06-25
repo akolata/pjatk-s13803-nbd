@@ -29,7 +29,43 @@ WITH reduce(totalPrice=0, r IN relationships(p) | totalPrice + r.price) AS total
   AND all(i IN relationships(p) WHERE i.destination <> 'LAX')
 RETURN p, totalPrice
 
+6. --- brak wyników
+MATCH p=(origin: Airport {name: 'LAX'})-[:FLIGHT_TICKET*1..3]->(destination: Airport {name: 'DAY'})
+WITH reduce(totalPrice=0, r IN relationships(p) | totalPrice + r.price) AS totalPrice, p
+  ORDER BY totalPrice ASC
+  WHERE destination.name <> 'LAX'
+  AND all(i IN relationships(p) WHERE i.destination <> 'LAX')
+RETURN p, totalPrice
+
+7. --- brak wyników
+MATCH p=(origin: Airport {name: 'LAX'})-[:FLIGHT_TICKET*1..3]->(destination: Airport {name: 'DAY'})
+WITH reduce(totalPrice=0, r IN relationships(p) | totalPrice + r.price) AS totalPrice, p
+  ORDER BY totalPrice ASC
+  WHERE destination.name <> 'LAX'
+  AND all(i IN relationships(p) WHERE i.destination <> 'LAX')
+RETURN p, totalPrice
+LIMIT 1
+
+8.  --- brak wyników
+MATCH p=(origin: Airport {name: 'LAX'})-[:FLIGHT_TICKET*1..3]->(destination: Airport {name: 'DAY'})
+WITH reduce(totalPrice=0, r IN relationships(p) | totalPrice + r.price) AS totalPrice, p
+  ORDER BY totalPrice ASC
+  WHERE destination.name <> 'LAX'
+  AND all(i IN relationships(p) WHERE i.destination <> 'LAX' AND i.class = 'business')
+RETURN p, totalPrice
+LIMIT 1
+
 9.
 MATCH (origin:Airport)<-[:ORIGIN]-(flight:Flight)-[:DESTINATION]->(destination:Airport)
 UNWIND [origin, destination] as airportTuple
 RETURN flight.airline as airline, count(distinct airportTuple) as airportTuple
+
+10.
+MATCH p=(origin:Airport)-[ft1:FLIGHT_TICKET]->(airportStop:Airport)-[ft2:FLIGHT_TICKET]->(destination:Airport)
+WITH reduce(totalPrice=0, r IN relationships(p) | totalPrice + r.price) AS totalPrice, p
+ORDER BY totalPrice ASC
+  WHERE  origin.name <> airportStop.name
+  AND origin.name <> destination.name
+  AND destination.name <> airportStop.name
+RETURN p, totalPrice
+LIMIT 1
